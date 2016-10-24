@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from './Point.scss';
 
 class Point extends React.Component {
   placeStone () {
@@ -6,8 +7,8 @@ class Point extends React.Component {
   }
   render () {
     return (
-      <li onClick={this.placeStone.bind(this)}>
-        {this.props.stone}
+      <li onClick={this.placeStone.bind(this)} className={styles.container}>
+        <em>{(this.props.stone ? this.props.stone : '')}</em>
       </li>
     )
   }

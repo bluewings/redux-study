@@ -32,6 +32,18 @@ module.exports = {
         cacheDirectory: true,
         presets: ['es2015', 'react']
       }
+    }, {
+      test: /\.scss$/,
+      loaders: [
+      'style',
+      // 'css?modules&importLoaders=1&localIdentName=[name]---[local]---[hash:base64:5]',
+      'css?modules&importLoaders=1&localIdentName=[hash:base64:5]',
+      'sass'
+      ]
+      // loaders: ['style', 'css']
+
+      // loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]!sass'
+      // loader: 'style!css'
     }]
   },
 

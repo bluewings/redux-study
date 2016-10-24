@@ -12,7 +12,8 @@ class App extends React.Component {
     super(props)
     this.state = {
       rows: new Array(SIZE)
-        .fill(new Array(SIZE).fill(0))
+        .fill(new Array(SIZE).fill(0)),
+      turn: 'W'
     }
   }
   onPlaceStone (x, y) {
@@ -23,16 +24,20 @@ class App extends React.Component {
         rows: update(this.state.rows, {
           [y]: {
             [x]: {
-              $set: WHITE
+              $set: this.state.turn
             }
           }
-        })
+        }),
+        turn: this.state.turn === 'W' ? 'B' : 'W'
       })
     }
   }
   render () {
     return (
+      <div>
+      <h1>{this.state.turn}</h1>
       <Board rows={this.state.rows} onPlaceStone={this.onPlaceStone.bind(this)} />
+      </div>
     )
   }
 }
