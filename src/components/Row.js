@@ -10,9 +10,7 @@ class Row extends React.Component {
                                              key={x}
                                              x={x}
                                              y={this.props.y}
-                                             cell={cell}
-                                             turn={this.props.turn}
-                                             onStonePlace={this.props.onStonePlace} />)}
+                                             cell={cell} />)}
       </div>
     )
   }

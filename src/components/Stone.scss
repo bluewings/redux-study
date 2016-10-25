@@ -27,7 +27,7 @@
     &.black {
         color: white;
         background-color: black;
-        background-image: -webkit-radial-gradient(40% 40%, circle closest-corner, #404040 0%, transparent 90%);
+        background-image: radial-gradient(40% 40%, circle closest-corner, #404040 0%, transparent 90%);
         box-shadow: 1px 1px 1px #404040;
     }
 }
