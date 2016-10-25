@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import configureStore from './store/configureStore'
 import App from './components/App'
 import DevTools from './containers/DevTools'
+import Bootstrap from 'bootstrap/dist/css/bootstrap.css'
 
 const store = configureStore()
 const rootElement = document.getElementById('root')

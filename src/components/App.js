@@ -10,9 +10,9 @@ class App extends React.Component {
   }
   render () {
     return (
-      <div>
+      <div className='container'>
         <Board rows={this.props.rows} />
-        <button onClick={this.onReset}>
+        <button className='btn btn-default' onClick={this.onReset}>
           reset
         </button>
       </div>
