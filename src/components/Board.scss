@@ -1,24 +1,8 @@
-$boardColor: #E9C372;
-$lineColor: #522;
+@import "../resources/variables.scss";
 
 .container {
-  /*padding:0;*/
-  display:inline-block;
-  border: 1px solid #876D38;
-  border: 1px solid $lineColor;
-  /*padding:10px;*/
-  background-color:#d9b05b;
-  background-color:$boardColor;
-  /*background-color:#fff;*/
-  ul {
-    list-style:none;
-    padding:0;
-    margin:0;
-  }
-  /*display:block;*/
-
-  /*background-color:yellow;
-  li {
-    background-color:green;
-  }*/
+    display: inline-block;
+    background-image: url($board-bg-img);
+    border: 1px solid $line-color;
+    padding: $board-padding ($board-padding + 1) ($board-padding + 1) $board-padding;
 }

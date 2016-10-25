@@ -1,42 +1,41 @@
 import React from 'react'
 import update from 'react-addons-update'
 import Board from './Board'
-
-const SIZE = 10
-
-const WHITE = 1
-const BLACK = 2
+import { BOARD_SIZE, WHITE, BLACK } from '../resources/constant.yml'
 
 class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      rows: new Array(SIZE)
-        .fill(new Array(SIZE).fill(0)),
-      turn: 'W'
+      rows: new Array(BOARD_SIZE)
+        .fill(new Array(BOARD_SIZE).fill(null)),
+      turn: BLACK,
+      seq: 0
     }
   }
-  onPlaceStone (x, y) {
-    console.log(this)
-    console.log(this.state.rows[y][x])
-    if (this.state.rows[y][x] === 0) {
+  onStonePlace (x, y) {
+    if (!this.state.rows[y][x]) {
+      let nextSeq = this.state.seq + 1
       this.setState({
         rows: update(this.state.rows, {
           [y]: {
             [x]: {
-              $set: this.state.turn
+              $set: {
+                color: this.state.turn,
+                seq: nextSeq
+              }
             }
           }
         }),
-        turn: this.state.turn === 'W' ? 'B' : 'W'
+        turn: this.state.turn === BLACK ? WHITE : BLACK,
+        seq: nextSeq
       })
     }
   }
   render () {
     return (
       <div>
-      <h1>{this.state.turn}</h1>
-      <Board rows={this.state.rows} onPlaceStone={this.onPlaceStone.bind(this)} />
+        <Board rows={this.state.rows} turn={this.state.turn} onStonePlace={this.onStonePlace.bind(this)} />
       </div>
     )
   }

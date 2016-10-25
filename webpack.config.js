@@ -13,17 +13,17 @@ module.exports = {
   },
 
   module: {
-    preLoaders: [{
-      test: /\.jsx?$/,
-      loader: 'standard',
-      exclude: /(node_modules|bower_components)/,
+    // preLoaders: [{
+    //   test: /\.jsx?$/,
+    //   loader: 'standard',
+    //   exclude: /(node_modules|bower_components)/,
 
-      query: {
-        fix: true,
-        snazzy: false,
-        write: true
-      }
-    }],
+    //   query: {
+    //     fix: true,
+    //     snazzy: false,
+    //     write: true
+    //   }
+    // }],
     loaders: [{
       test: /\.js$/,
       loader: 'babel',
@@ -35,16 +35,25 @@ module.exports = {
     }, {
       test: /\.scss$/,
       loaders: [
-      'style',
-      // 'css?modules&importLoaders=1&localIdentName=[name]---[local]---[hash:base64:5]',
-      'css?modules&importLoaders=1&localIdentName=[hash:base64:5]',
-      'sass'
+        'style',
+        // 'css?modules&importLoaders=1&localIdentName=[name]---[local]---[hash:base64:5]',
+        'css?modules&importLoaders=1&localIdentName=[hash:base64:5]',
+        'sass'
       ]
       // loaders: ['style', 'css']
 
-      // loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]!sass'
-      // loader: 'style!css'
-    }]
+    // loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]!sass'
+    // loader: 'style!css'
+    },
+
+      {
+        test: /\.yml$/,
+        // include: path.resolve('data'),
+        loaders: ['json', 'yaml'],
+        exclude: /node_modules/
+      }
+
+    ]
   },
 
   standard: {

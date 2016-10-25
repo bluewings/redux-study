@@ -1,0 +1,83 @@
+@import "../resources/variables.scss";
+
+.container {
+    position: relative;
+    display: inline-block;
+    width: $cell-size;
+    height: $cell-size;
+    line-height: $cell-size;
+    cursor: pointer;
+    vertical-align: top;
+    text-align: center;
+
+    &:before, &:after {
+        position: absolute;
+        content: "";
+        pointer-events: none;
+    }
+
+    &:before {
+        top: 50%;
+        left: 0;
+        width: 100%;
+        border-top: 1px solid $line-color;
+    }
+
+    &:after {
+        top: 0;
+        left: 50%;
+        height: 100%;
+        border-left: 1px solid $line-color;
+    }
+
+    &:first-child {
+        &:before {
+            left: 50%;
+            width: 50%;
+        }
+    }
+
+    &:last-child {
+        &:before {
+            width: 50%;
+        }
+    }
+
+    &.white, &.black {
+        &:hover {
+            &:before {
+                margin: auto;
+                position: absolute;
+                top: 1px;
+                left: 1px;
+                bottom: 1px;
+                right: 1px;
+                width: auto;
+                opacity: .5;
+                pointer-events: none;
+                border: none;
+                box-sizing: border-box;
+                border-radius: 50%;
+            }
+
+            &:after {
+                display: none;
+            }
+
+            &.white {
+                &:before {
+                    background-color: white;
+                    box-shadow: 1px 1px 1px #404040 , inset -3px -3px 5px silver;
+                }
+            }
+
+            &.black {
+                &:before {
+                    background-color: black;
+                    background-image: -webkit-radial-gradient(40% 40%, circle closest-corner, #404040 0%, transparent 90%);
+                    box-shadow: 1px 1px 1px #404040;
+                }
+            }
+        }
+    }
+}

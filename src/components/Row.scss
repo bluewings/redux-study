@@ -1,0 +1,20 @@
+.container {
+    display: block;
+
+    &:first-child {
+        > div {
+            &:after {
+                top: 50%;
+                height: 50%;
+            }
+        }
+    }
+
+    &:last-child {
+        > div {
+            &:after {
+                height: 50%;
+            }
+        }
+    }
+}
