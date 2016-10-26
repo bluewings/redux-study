@@ -3,8 +3,8 @@ import { persistState } from 'redux-devtools'
 import reducer from '../reducers'
 import DevTools from '../containers/DevTools'
 
-const enhancer = compose(
-  DevTools.instrument(),
+const enhancer = (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose)(
+  // DevTools.instrument(),
   persistState(
     window.location.href.match(
       /[?&]debug_session=([^&#]+)\b/
